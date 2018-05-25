@@ -35,22 +35,22 @@ public class AtmTest
 	public void shouldDecreaseBalance()
 	{
 		// Arrange
-		BigDecimal underTestBalance = atm.withdraw(new BigDecimal(101.00));
-		BigDecimal expectedBankBalance = new BigDecimal(100.00);
+		BigDecimal underTestWithdrawAmount = atm.withdraw(new BigDecimal(50.00));
+		BigDecimal expectedBankBalance = new BigDecimal(50.00);
 
 		// Assert
-		Assert.assertEquals(expectedBankBalance, underTestBalance);
+		Assert.assertEquals(expectedBankBalance, underTestWithdrawAmount);
 	}
 	
 	@Test
 	public void shouldIncreaseBalance()
 	{
 		// Arrange
-		BigDecimal underTestBalance = atm.deposit(new BigDecimal(50.00));
+		BigDecimal underTestDepositAmount = atm.deposit(new BigDecimal(50.00));
 		BigDecimal expectedBankBalance = new BigDecimal(150.00);
 
 		// Assert
-		Assert.assertEquals(expectedBankBalance, underTestBalance);
+		Assert.assertEquals(expectedBankBalance, underTestDepositAmount);
 	}
 	
 	@Test
@@ -62,5 +62,51 @@ public class AtmTest
 
 		// Assert
 		Assert.assertEquals(expectedBankBalance, underTestBalance);
+	}
+	
+	@Test
+	public void shouldReturnTrueWhenCanWithdraw()
+	{
+		// Arrange
+		boolean underTestWithdraw = atm.canWithdraw(new BigDecimal(100.00));		
+		// Act
+		
+		// Assert
+		Assert.assertEquals(true, underTestWithdraw);
+	}
+	
+	@Test
+	public void shouldReturnFalseWhenCanWithdraw()
+	{
+		// Arrange
+		boolean underTestWithdraw = atm.canWithdraw(new BigDecimal(101.00));
+		
+		// Act
+		
+		// Assert
+		Assert.assertEquals(false, underTestWithdraw);
+	}
+	
+	@Test
+	public void shouldReturnTrueWhenCanDeposit()
+	{
+		// Arrange
+		boolean underTestDeposit = atm.canDeposit(new BigDecimal(100.00));		
+		// Act
+		
+		// Assert
+		Assert.assertEquals(true, underTestDeposit);
+	}
+	
+	@Test
+	public void shouldReturnFalseWhenCanDeposit()
+	{
+		// Arrange
+		boolean underTestWithdraw = atm.canWithdraw(new BigDecimal(101.00));
+		
+		// Act
+		
+		// Assert
+		Assert.assertEquals(false, underTestWithdraw);
 	}
 }

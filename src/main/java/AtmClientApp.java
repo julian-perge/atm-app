@@ -1,9 +1,13 @@
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.Scanner;
+
 
 public class AtmClientApp
 {
+	private DecimalFormat hundredthPrecision = new DecimalFormat(); 
+	
 	public static void main(String[] args)
 	{
 		Scanner input = new Scanner(System.in);
@@ -84,9 +88,10 @@ public class AtmClientApp
 		
 		BigDecimal depositAmount = input.nextBigDecimal();
 		input.nextLine();
+		
+		DecimalFormat paddDepositAmount = new DecimalFormat(); 
 
-		//String paddedDepositAmount = paddedFormat.format(depositAmount);
-		System.out.println("Your deposit of " + depositAmount + " was successful.");
+		System.out.println("Your deposit of " + paddDepositAmount.format(depositAmount )+ " was successful.");
 		System.out.println("Your balance now is " + atm.deposit(depositAmount)  + "\n");
 	}
 
@@ -99,7 +104,8 @@ public class AtmClientApp
 		// unsuccessful withdraw
 		if (!atm.canWithdraw(withdrawAmount))
 		{
-			System.out.println("Withdraw was not successful. Insufficient funds. Please try again.");
+			System.out.println("Withdraw was not successful. Insufficient funds. Enter another withdraw amount, or press 4 to exit to the main transaction screen.");
+			withdrawTransaction(atm, input);
 			
 		}
 		else

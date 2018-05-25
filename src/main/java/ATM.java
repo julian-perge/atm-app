@@ -1,4 +1,5 @@
 import java.math.BigDecimal;
+import java.text.DecimalFormat;
 
 public class ATM
 {
@@ -44,15 +45,22 @@ public class ATM
 	
 	public BigDecimal deposit(BigDecimal amount)
 	{
+	
+		DecimalFormat paddDepositAmount = new DecimalFormat("##,###.00");
+		System.out.println("Your deposit of " + paddDepositAmount.format(amount) + " was successful.");
 		balance = balance.add(amount);
+		System.out.println("Your new balance is now: " + paddDepositAmount.format(balance)+ "\n");	
+		
 		return balance;
 	}
 
 	public BigDecimal withdraw(BigDecimal amount)
 	{	
-		System.out.println("Your withdraw of " + amount + " was successful.");
+		DecimalFormat paddWithdrawAmount = new DecimalFormat("##,###.00");
+		
+		System.out.println("Your withdraw of " + paddWithdrawAmount.format(amount) + " was successful.");
 		balance = balance.subtract(amount);
-		System.out.println("Your new balance is now: " + balance + "\n");	
+		System.out.println("Your new balance is now: " + paddWithdrawAmount.format(balance)+ "\n");	
 		return balance;
 	}
 	
