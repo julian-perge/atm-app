@@ -87,16 +87,16 @@ public class AtmTest
 		Assert.assertEquals(false, underTestWithdraw);
 	}
 	
-	@Test
-	public void shouldReturnTrueWhenCanDeposit()
-	{
-		// Arrange
-		boolean underTestDeposit = atm.canDeposit(new BigDecimal(100.00));		
-		// Act
-		
-		// Assert
-		Assert.assertEquals(true, underTestDeposit);
-	}
+//	@Test
+//	public void shouldReturnTrueWhenCanDeposit()
+//	{
+//		// Arrange
+//		boolean underTestDeposit = atm.canDeposit(new BigDecimal(100.00));		
+//		// Act
+//		
+//		// Assert
+//		Assert.assertEquals(true, underTestDeposit);
+//	}
 	
 	@Test
 	public void shouldReturnFalseWhenCanDeposit()

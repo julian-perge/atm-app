@@ -56,7 +56,7 @@ public class AtmClientApp
 				{
 					System.out.println("Please enter a withdraw amount: ");
 					//BigDecimal withdrawAmount = input.nextBigDecimal();
-					withdrawTransaction(atm, input);
+					BigDecimal newBankBalance = withdrawTransaction(atm, input);
 					//String paddedWithdrawAmount = paddedFormat.format(withdrawAmount);
 				}
 				else if (userMenuResponse.equals("3"))
